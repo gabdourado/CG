@@ -1,2 +1,2 @@
 # CG
-Projetos desenvolvidos para a disciplina de Computação Gráfica
+Projetos desenvolvidos para a disciplina de Computação Gráfica 🖌️🖥️
