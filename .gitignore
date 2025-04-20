@@ -1,6 +1,8 @@
 # Ignorar ambientes virtuais
 env/
+
+# Ignorando essa adaptação em desenvovimento
 janelas/
 
-# Meu arquivo de testes
+# Ignorando o meu arquivo de testes :/
 teste.py
