@@ -1,0 +1,6 @@
+# Ignorar ambientes virtuais
+env/
+janelas/
+
+# Meu arquivo de testes
+teste.py
