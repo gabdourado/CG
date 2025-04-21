@@ -1,3 +1,5 @@
+#!/home/gab/BCC/CG/env/bin/python
+
 import cairo
 
 def CantorSet(init_x, end_x, y, iterations):

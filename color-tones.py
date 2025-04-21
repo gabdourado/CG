@@ -1,3 +1,5 @@
+#!/home/gab/BCC/CG/env/bin/python
+
 import cairo
 from colorsys import rgb_to_hls, hls_to_rgb
 from random import uniform, randint

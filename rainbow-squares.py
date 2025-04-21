@@ -1,3 +1,5 @@
+#!/home/gab/BCC/CG/env/bin/python
+
 import cairo
 
 # Linear Interpolation Function (LERP)
