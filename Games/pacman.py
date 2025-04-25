@@ -3,23 +3,23 @@
 import pygame
 
 mapa = [
-    [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1],
-    [1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1],
-    [1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1],
-    [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1],
-    [1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1],
-    [1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0],
+    [0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0],
+    [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0],
+    [0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0],
+    [0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
 AMARELO = (255, 255, 0)
 
-VELOCIDADE = 5
+DESLOCAMENTO = 5
 
 SIZE_TILE = 32
 
@@ -35,8 +35,8 @@ def get_tile(x, y):
     tile = tileset.subsurface((x * SIZE_TILE, y * SIZE_TILE, SIZE_TILE, SIZE_TILE))
     return tile
 tiles = {
-    1: get_tile(0, 0),  # grama (área acessível)
-    0: get_tile(1, 0),  # pedra (área inacessível)
+    0: get_tile(0, 0),  # (área inacessível)
+    1: get_tile(1, 0),  # (área acessível)
 }
 
 def inicializar():
@@ -63,7 +63,7 @@ def sprite_valido(x, y):
   tile_linha = y // SIZE_TILE
 
   if 0 <= tile_linha < len(mapa) and 0 <= tile_coluna < len(mapa[0]):
-    return mapa[tile_linha][tile_coluna] == 0
+    return mapa[tile_linha][tile_coluna] == 1
   return False
 
 def mover_jogador(jogador):
@@ -72,13 +72,13 @@ def mover_jogador(jogador):
   dx = dy = 0
   
   if teclas[pygame.K_LEFT]:
-    dx = -VELOCIDADE
+    dx = -DESLOCAMENTO
   if teclas[pygame.K_RIGHT]:
-    dx = VELOCIDADE
+    dx = DESLOCAMENTO
   if teclas[pygame.K_UP]:
-    dy = -VELOCIDADE
+    dy = -DESLOCAMENTO
   if teclas[pygame.K_DOWN]:
-    dy = VELOCIDADE
+    dy = DESLOCAMENTO
 
   novo_jogador = jogador.move(dx, dy)
 
