@@ -34,6 +34,7 @@ tileset = pygame.image.load("./tileset-fundo.png").convert_alpha()
 def get_tile(x, y):
     tile = tileset.subsurface((x * SIZE_TILE, y * SIZE_TILE, SIZE_TILE, SIZE_TILE))
     return tile
+
 tiles = {
     0: get_tile(0, 0),  # (área inacessível)
     1: get_tile(1, 0),  # (área acessível)
