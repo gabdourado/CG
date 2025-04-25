@@ -1,23 +1,25 @@
 #!/home/gab/BCC/CG/env/bin/python
 
 import pygame
+from time import sleep
 
 mapa = [
-    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
     [0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0],
     [0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0],
     [0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0],
-    [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
     [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
     [0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0],
     [0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0],
     [0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0],
     [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
 AMARELO = (255, 255, 0)
+VERMELHO = (255, 0, 0)
 
 DESLOCAMENTO = 5
 
@@ -54,9 +56,10 @@ def desenhar_mapa(tela, mapa):
 def criar_jogador(x, y, largura, altura):
   return pygame.Rect(x, y, largura, altura)
 
-def desenhar_tela(tela, jogador, cor):
+def desenhar_tela(tela, jogador, cor_jogador, vilao, cor_vilao):
   desenhar_mapa(tela, mapa)
-  pygame.draw.rect(tela, cor, jogador)
+  pygame.draw.rect(tela, cor_jogador, jogador)
+  pygame.draw.rect(tela, cor_vilao, vilao)
   pygame.display.flip()
 
 def sprite_valido(x, y):
@@ -67,32 +70,49 @@ def sprite_valido(x, y):
     return mapa[tile_linha][tile_coluna] == 1
   return False
 
-def mover_jogador(jogador):
+def move_personagem(personagem, classe):
   teclas = pygame.key.get_pressed()
 
   dx = dy = 0
   
-  if teclas[pygame.K_LEFT]:
-    dx = -DESLOCAMENTO
-  if teclas[pygame.K_RIGHT]:
-    dx = DESLOCAMENTO
-  if teclas[pygame.K_UP]:
-    dy = -DESLOCAMENTO
-  if teclas[pygame.K_DOWN]:
-    dy = DESLOCAMENTO
+  
+  match (classe):
+    case 'player1':
+      if teclas[pygame.K_LEFT]:
+        dx = -DESLOCAMENTO
+      if teclas[pygame.K_RIGHT]:
+        dx = DESLOCAMENTO
+      if teclas[pygame.K_UP]:
+        dy = -DESLOCAMENTO
+      if teclas[pygame.K_DOWN]:
+        dy = DESLOCAMENTO
+        
+    case 'player2':
+      if teclas[pygame.K_w]:
+        dy -= DESLOCAMENTO
+      if teclas[pygame.K_s]:
+          dy += DESLOCAMENTO
+      if teclas[pygame.K_a]:
+          dx -= DESLOCAMENTO
+      if teclas[pygame.K_d]:
+          dx += DESLOCAMENTO
 
-  novo_jogador = jogador.move(dx, dy)
+  novo_personagem = personagem.move(dx, dy)
 
   if (
-      sprite_valido(novo_jogador.left, novo_jogador.top) and
-      sprite_valido(novo_jogador.right - 1, novo_jogador.top) and
-      sprite_valido(novo_jogador.left, novo_jogador.bottom - 1) and
-      sprite_valido(novo_jogador.right - 1, novo_jogador.bottom - 1)
+      sprite_valido(novo_personagem.left, novo_personagem.top) and
+      sprite_valido(novo_personagem.right - 1, novo_personagem.top) and
+      sprite_valido(novo_personagem.left, novo_personagem.bottom - 1) and
+      sprite_valido(novo_personagem.right - 1, novo_personagem.bottom - 1)
     ):
-    jogador.x += dx
-    jogador.y += dy
+    personagem.x += dx
+    personagem.y += dy
 
-def loop_jogo(tela, jogador):
+
+def morte (jogador, vilao):
+  return jogador.colliderect(vilao)
+
+def loop_jogo(tela, jogador, vilao):
   clock = pygame.time.Clock()
   rodando = True
 
@@ -101,8 +121,14 @@ def loop_jogo(tela, jogador):
       if evento.type == pygame.QUIT:
           rodando = False
 
-    mover_jogador(jogador)
-    desenhar_tela(tela, jogador, AMARELO)
+    move_personagem(jogador, 'player1')
+    move_personagem(vilao, 'player2')
+    desenhar_tela(tela, jogador, AMARELO, vilao, VERMELHO)
+    
+    if morte(jogador, vilao):
+      sleep(0.5)
+      rodando = False
+
     clock.tick(60)
 
   pygame.quit()
@@ -110,8 +136,9 @@ def loop_jogo(tela, jogador):
 def main():
   altura, largura = 10, 10
   tela = inicializar()
-  jogador = criar_jogador(LARGURA // 2, ALTURA // 2, altura, largura)
-  loop_jogo(tela, jogador)
+  jogador = criar_jogador(LARGURA // 2, ALTURA // 2, altura, largura) # Programador
+  vilao = criar_jogador(LARGURA // 4, ALTURA // 2, altura, largura) # Bug
+  loop_jogo(tela, jogador, vilao)
 
 if __name__ == "__main__":
   main()
