@@ -4,5 +4,8 @@ env/
 # Ignorando essa adaptação em desenvovimento
 janelas/
 
-# Ignorando o meu arquivo de testes :/
+# Ignorando o meu arquivo de testes :)
 teste.py
+
+# Ignorando meu arquivo de notas :)
+notas.md
