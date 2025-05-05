@@ -37,7 +37,7 @@ def rainbow_squares(contexto, screen_w, rgbA, rgbB, rgbC, rgbD, num_squares, spa
 
 # Create an image surface (RGBA format)
 width = height = 200
-surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
+surface = cairo.SVGSurface("./outputs/rainbow-squares.svg", width, height)
 ctx = cairo.Context(surface)
 
 # Set the background to be white
@@ -52,6 +52,3 @@ rgbD = [0, 1, 0] # Gree
 
 # Draw mutiples squares
 rainbow_squares(ctx, width, rgbA, rgbB, rgbC, rgbD, 7, 5)
-
-# Save the image
-surface.write_to_png("./outputs/rainbow-squares.png")

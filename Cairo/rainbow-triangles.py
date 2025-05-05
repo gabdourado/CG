@@ -40,19 +40,17 @@ def rainbow_triangles(context):
 
       context.fill_preserve()
       
-      context.set_line_width(0)
+      context.set_line_width(0.5)
       
       context.set_source_rgb(0, 0, 0)
       context.stroke()
 
 
 width, height = 1220, 220
-surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
+surface = cairo.SVGSurface("./outputs/rainbow-triangles.svg", width, height)
 context = cairo.Context(surface)
 
 context.set_source_rgb(1, 1, 1)
 context.paint()
 
 rainbow_triangles(context)
-
-surface.write_to_png("./outputs/rainbow-triangles.png")

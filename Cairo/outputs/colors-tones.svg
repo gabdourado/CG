@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+<rect x="-20" y="-20" width="240" height="240" fill="rgb(100%, 100%, 100%)" fill-opacity="1"/>
+<path fill-rule="nonzero" fill="rgb(6%, 6%, 54%)" fill-opacity="1" d="M 10 10 L 38 10 L 38 38 L 10 38 Z M 10 10 "/>
+<path fill-rule="nonzero" fill="rgb(6%, 6%, 54%)" fill-opacity="1" d="M 48 10 L 76 10 L 76 38 L 48 38 Z M 48 10 "/>
+<path fill-rule="nonzero" fill="rgb(6%, 6%, 54%)" fill-opacity="1" d="M 86 10 L 114 10 L 114 38 L 86 38 Z M 86 10 "/>
+<path fill-rule="nonzero" fill="rgb(6%, 6%, 54%)" fill-opacity="1" d="M 124 10 L 152 10 L 152 38 L 124 38 Z M 124 10 "/>
+<path fill-rule="nonzero" fill="rgb(6%, 6%, 54%)" fill-opacity="1" d="M 162 10 L 190 10 L 190 38 L 162 38 Z M 162 10 "/>
+<path fill-rule="nonzero" fill="rgb(4%, 4%, 16%)" fill-opacity="1" d="M 10 48 L 38 48 L 38 76 L 10 76 Z M 10 48 "/>
+<path fill-rule="nonzero" fill="rgb(4%, 4%, 16%)" fill-opacity="1" d="M 48 48 L 76 48 L 76 76 L 48 76 Z M 48 48 "/>
+<path fill-rule="nonzero" fill="rgb(4%, 4%, 16%)" fill-opacity="1" d="M 86 48 L 114 48 L 114 76 L 86 76 Z M 86 48 "/>
+<path fill-rule="nonzero" fill="rgb(4%, 4%, 16%)" fill-opacity="1" d="M 124 48 L 152 48 L 152 76 L 124 76 Z M 124 48 "/>
+<path fill-rule="nonzero" fill="rgb(4%, 4%, 16%)" fill-opacity="1" d="M 162 48 L 190 48 L 190 76 L 162 76 Z M 162 48 "/>
+<path fill-rule="nonzero" fill="rgb(20%, 20%, 100%)" fill-opacity="1" d="M 10 86 L 38 86 L 38 114 L 10 114 Z M 10 86 "/>
+<path fill-rule="nonzero" fill="rgb(20%, 20%, 100%)" fill-opacity="1" d="M 48 86 L 76 86 L 76 114 L 48 114 Z M 48 86 "/>
+<path fill-rule="nonzero" fill="rgb(20%, 20%, 100%)" fill-opacity="1" d="M 86 86 L 114 86 L 114 114 L 86 114 Z M 86 86 "/>
+<path fill-rule="nonzero" fill="rgb(20%, 20%, 100%)" fill-opacity="1" d="M 124 86 L 152 86 L 152 114 L 124 114 Z M 124 86 "/>
+<path fill-rule="nonzero" fill="rgb(20%, 20%, 100%)" fill-opacity="1" d="M 162 86 L 190 86 L 190 114 L 162 114 Z M 162 86 "/>
+<path fill-rule="nonzero" fill="rgb(40%, 40%, 100%)" fill-opacity="1" d="M 10 124 L 38 124 L 38 152 L 10 152 Z M 10 124 "/>
+<path fill-rule="nonzero" fill="rgb(40%, 40%, 100%)" fill-opacity="1" d="M 48 124 L 76 124 L 76 152 L 48 152 Z M 48 124 "/>
+<path fill-rule="nonzero" fill="rgb(40%, 40%, 100%)" fill-opacity="1" d="M 86 124 L 114 124 L 114 152 L 86 152 Z M 86 124 "/>
+<path fill-rule="nonzero" fill="rgb(40%, 40%, 100%)" fill-opacity="1" d="M 124 124 L 152 124 L 152 152 L 124 152 Z M 124 124 "/>
+<path fill-rule="nonzero" fill="rgb(40%, 40%, 100%)" fill-opacity="1" d="M 162 124 L 190 124 L 190 152 L 162 152 Z M 162 124 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 100%)" fill-opacity="1" d="M 10 162 L 38 162 L 38 190 L 10 190 Z M 10 162 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 100%)" fill-opacity="1" d="M 48 162 L 76 162 L 76 190 L 48 190 Z M 48 162 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 100%)" fill-opacity="1" d="M 86 162 L 114 162 L 114 190 L 86 190 Z M 86 162 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 100%)" fill-opacity="1" d="M 124 162 L 152 162 L 152 190 L 124 190 Z M 124 162 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 100%)" fill-opacity="1" d="M 162 162 L 190 162 L 190 190 L 162 190 Z M 162 162 "/>
+</svg>

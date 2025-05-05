@@ -43,7 +43,7 @@ def random_squares (contexto, screen_w, rgb, num_squares, space = 10):
           contexto.fill()
 
 width = height = 200
-surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
+surface = cairo.SVGSurface("./outputs/colors-tones.svg", width, height)
 ctx = cairo.Context(surface)
 
 ctx.set_source_rgb(1, 1, 1)
@@ -60,6 +60,4 @@ colors = [
 ]
 random_color = colors[randint(0, len(colors) - 1)]
 
-random_squares(ctx, width, random_color, 5) 
-
-surface.write_to_png("./outputs/colors-tones.png")
+random_squares(ctx, width, random_color, 5)
